@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Travel Content Creator — Turn Trips Into a Faceless Income Stream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16232E;
+    --navy-light:#1F3140;
+    --cream:#F2E9D8;
+    --gold:#E3A857;
+    --rust:#B5533C;
+    --teal:#46766B;
+    --ink:#1B1B1B;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  /* ---------- NAV ---------- */
+  nav{
+    background:var(--navy);
+    color:var(--cream);
+    padding:22px 0;
+  }
+  nav .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:19px;
+    color:var(--cream);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .logo-mark{
+    width:26px; height:26px;
+    border:1.5px solid var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:13px;
+    color:var(--gold);
+  }
+  .nav-cta{
+    border:1px solid var(--gold);
+    color:var(--gold);
+    font-size:14px;
+    padding:9px 18px;
+    border-radius:2px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  /* ---------- HERO ---------- */
+  header.hero{
+    background:var(--navy);
+    color:var(--cream);
+    padding:64px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .route-line{
+    width:100%;
+    max-width:520px;
+    margin:0 auto 36px;
+  }
+  .hero-inner{
+    max-width:720px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .kicker{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:16px;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+  h1.headline{
+    font-size:56px;
+    line-height:1.05;
+    color:var(--cream);
+  }
+  h1.headline em{
+    font-style:italic;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .sub{
+    font-size:18px;
+    color:#CBD3D8;
+    max-width:520px;
+    margin:24px auto 36px;
+  }
+  .cta-row{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--rust);
+    color:var(--cream);
+    font-size:15px;
+    font-weight:600;
+    padding:15px 30px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .btn-ghost{
+    border:1px solid #4A5C68;
+    color:var(--cream);
+    font-size:15px;
+    padding:15px 26px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-block;
+  }
+  /* boarding pass stub */
+  .stub{
+    margin:56px auto 0;
+    max-width:640px;
+    background:var(--cream);
+    color:var(--ink);
+    border-radius:4px;
+    display:flex;
+    box-shadow:0 20px 40px rgba(0,0,0,0.25);
+  }
+  .stub-main{
+    flex:1;
+    padding:22px 26px;
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .stub-field .label{
+    font-size:11px;
+    letter-spacing:0.04em;
+    color:#8a8375;
+    margin-bottom:4px;
+  }
+  .stub-field .value{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:16px;
+  }
+  .stub-stub{
+    width:110px;
+    border-left:1.5px dashed #C9BFA9;
+    padding:22px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#EBE0C8;
+    border-radius:0 4px 4px 0;
+  }
+  .stub-stub .value{
+    font-size:22px;
+    color:var(--rust);
+  }
+  .stub-stub .label{color:#8a8375; font-size:10px;}
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    max-width:600px;
+    margin-bottom:48px;
+  }
+  .section-head .kicker-dark{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--rust);
+    margin-bottom:10px;
+  }
+  .section-head h2{
+    font-size:36px;
+    color:var(--ink);
+  }
+  .section-head p{
+    color:#4a463d;
+    font-size:16px;
+    margin-top:14px;
+    max-width:480px;
+  }
+  /* ---------- PROMISE ---------- */
+  .promise{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  .promise .col p{
+    font-size:17px;
+    color:#3c3830;
+  }
+  .promise .col h3{
+    font-size:22px;
+    margin-bottom:14px;
+  }
+  .divider{
+    border:none;
+    border-top:1px dashed #C9BFA9;
+    margin:0;
+  }
+  /* ---------- CURRICULUM ---------- */
+  .curriculum{background:var(--navy); color:var(--cream);}
+  .curriculum .section-head h2{color:var(--cream);}
+  .curriculum .section-head p{color:#B8C0C6;}
+  .curriculum .kicker-dark{color:var(--gold);}
+  .tag-list{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .tag{
+    background:var(--navy-light);
+    border:1px solid #33454F;
+    border-radius:4px;
+    padding:26px 30px;
+    display:grid;
+    grid-template-columns:64px 1fr auto;
+    align-items:center;
+    gap:22px;
+    position:relative;
+  }
+  .tag::before{
+    content:"";
+    position:absolute;
+    left:-9px;
+    top:50%;
+    transform:translateY(-50%);
+    width:18px; height:18px;
+    background:var(--cream);
+    border-radius:50%;
+  }
+  .tag-num{
+    font-family:'Fraunces', serif;
+    font-size:34px;
+    color:var(--gold);
+    line-height:1;
+  }
+  .tag-title{
+    font-family:'Fraunces', serif;
+    font-size:20px;
+    color:var(--cream);
+  }
+  .tag-desc{
+    font-size:14px;
+    color:#AEB8BE;
+    margin-top:4px;
+  }
+  .tag-badge{
+    font-size:12px;
+    color:#8fa3ac;
+    border:1px solid #33454F;
+    padding:6px 12px;
+    border-radius:20px;
+    white-space:nowrap;
+  }
+  /* ---------- WHO IT'S FOR ---------- */
+  .for-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .stamp{
+    border:1.5px solid #C9BFA9;
+    border-radius:4px;
+    padding:22px 24px;
+  }
+  .stamp h4{
+    font-family:'Fraunces', serif;
+    font-size:17px;
+    margin-bottom:8px;
+    color:var(--teal);
+  }
+  .stamp p{font-size:14.5px; color:#4a463d;}
+  /* ---------- QUOTE ---------- */
+  .quote-block{
+    background:#EBE0C8;
+    border-radius:4px;
+    padding:48px;
+    text-align:center;
+  }
+  .quote-block p.q{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:24px;
+    line-height:1.4;
+    color:var(--ink);
+    max-width:600px;
+    margin:0 auto 20px;
+  }
+  .quote-block .attrib{font-size:14px; color:#6b6558;}
+  /* ---------- PRICING ---------- */
+  .price-card{
+    max-width:440px;
+    margin:0 auto;
+    background:var(--navy);
+    color:var(--cream);
+    border-radius:6px;
+    padding:44px;
+    text-align:center;
+  }
+  .price-card .plan{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--gold);
+    font-size:16px;
+    margin-bottom:10px;
+  }
+  .price-card .amount{
+    font-family:'Fraunces', serif;
+    font-size:52px;
+    margin-bottom:6px;
+  }
+  .price-card .amount span{font-size:16px; font-family:'Work Sans',sans-serif; color:#AEB8BE;}
+  .price-card ul{
+    list-style:none;
+    text-align:left;
+    margin:28px 0 32px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .price-card li{
+    font-size:14.5px;
+    color:#D7DCDE;
+    padding-left:22px;
+    position:relative;
+  }
+  .price-card li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:var(--gold);
+  }
+  .price-card .btn-primary{width:100%; text-align:center;}
+  .price-note{
+    text-align:center;
+    font-size:13px;
+    color:#8a8375;
+    margin-top:16px;
+  }
+  /* ---------- FAQ ---------- */
+  details{
+    border-top:1px solid #DDD2B8;
+    padding:18px 0;
+  }
+  details:last-child{border-bottom:1px solid #DDD2B8;}
+  summary{
+    cursor:pointer;
+    font-family:'Fraunces', serif;
+    font-size:17px;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary::after{
+    content:"+";
+    font-size:22px;
+    color:var(--rust);
+    margin-left:20px;
+  }
+  details[open] summary::after{content:"–";}
+  details p{
+    font-size:15px;
+    color:#4a463d;
+    margin-top:12px;
+    max-width:640px;
+  }
+  /* ---------- FOOTER CTA ---------- */
+  footer{
+    background:var(--navy);
+    color:var(--cream);
+    text-align:center;
+    padding:80px 0 40px;
+  }
+  footer h2{
+    color:var(--cream);
+    font-size:34px;
+    max-width:520px;
+    margin:0 auto 18px;
+  }
+  footer p{color:#B8C0C6; max-width:440px; margin:0 auto 32px;}
+  .foot-fine{
+    margin-top:60px;
+    font-size:13px;
+    color:#5C6C76;
+    border-top:1px solid #2A3B45;
+    padding-top:24px;
+  }
+  @media (max-width:720px){
+    h1.headline{font-size:36px;}
+    .promise, .for-grid{grid-template-columns:1fr;}
+    .stub{flex-direction:column;}
+    .stub-stub{border-left:none; border-top:1.5px dashed #C9BFA9; border-radius:0 0 4px 4px; flex-direction:row; gap:10px; padding:16px;}
+    .tag{grid-template-columns:44px 1fr; }
+    .tag-badge{grid-column:1 / -1;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo"><span class="logo-mark">✈</span>Faceless Travel Income</div>
+    <a href="#pricing" class="nav-cta">Enroll now</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <svg class="route-line" viewBox="0 0 520 60" fill="none">
+      <line x1="20" y1="30" x2="500" y2="30" stroke="#3A4E59" stroke-width="1.5" stroke-dasharray="2 8" stroke-linecap="round"/>
+      <circle cx="20" cy="30" r="5" fill="#E3A857"/>
+      <circle cx="175" cy="30" r="5" fill="#E3A857"/>
+      <circle cx="345" cy="30" r="5" fill="#E3A857"/>
+      <circle cx="500" cy="30" r="5" fill="#E3A857"/>
+      <path d="M255 30 l14 -6 v4 h20 v4 h-20 v4 z" fill="#F2E9D8"/>
+    </svg>
+    <p class="kicker">A five-module course</p>
+    <h1 class="headline">Turn trips into a <em>faceless</em><br>income stream</h1>
+    <p class="sub">Build an AI-powered travel content business that runs without your face on camera — from income model to monetized channels, in five modules.</p>
+    <div class="cta-row">
+      <a href="#pricing" class="btn-primary">Enroll in the course</a>
+      <a href="#curriculum" class="btn-ghost">See the curriculum</a>
+    </div>
+
+    <div class="stub">
+      <div class="stub-main">
+        <div class="stub-field">
+          <div class="label">Course</div>
+          <div class="value">AI Travel Content Creator</div>
+        </div>
+        <div class="stub-field">
+          <div class="label">Format</div>
+          <div class="value">5 modules · self-paced</div>
+        </div>
+        <div class="stub-field">
+          <div class="label">Runtime</div>
+          <div class="value">Lesson 1 · 9:52</div>
+        </div>
+      </div>
+      <div class="stub-stub">
+        <div class="label">Seat</div>
+        <div class="value">01A</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="promise">
+  <div class="wrap promise">
+    <div class="col">
+      <h3>You don't need to be on camera to make money from travel</h3>
+      <p>Most travel-content advice assumes you want to be an influencer: vlogging, talking to camera, building a personal brand around your face. That's one path — it's not the only one.</p>
+    </div>
+    <div class="col">
+      <h3>This course teaches the other one</h3>
+      <p>You'll use AI tools to research, write, and produce travel content at scale, then turn that content into more than one income stream — without ever appearing on screen.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<section class="curriculum" id="curriculum">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker-dark">The five-module arc</div>
+      <h2>What you'll build, module by module</h2>
+      <p>Each module builds on the last — from the income model itself through to choosing where to scale.</p>
+    </div>
+    <div class="tag-list">
+      <div class="tag">
+        <div class="tag-num">01</div>
+        <div>
+          <div class="tag-title">Foundations: the income model</div>
+          <div class="tag-desc">How faceless travel income actually works, and which model fits your time and goals.</div>
+        </div>
+        <div class="tag-badge">Module 1</div>
+      </div>
+      <div class="tag">
+        <div class="tag-num">02</div>
+        <div>
+          <div class="tag-title">The AI content engine</div>
+          <div class="tag-desc">Research, write, and produce travel content at scale using AI tools.</div>
+        </div>
+        <div class="tag-badge">Module 2</div>
+      </div>
+      <div class="tag">
+        <div class="tag-num">03</div>
+        <div>
+          <div class="tag-title">Building your income streams</div>
+          <div class="tag-desc">Turn published content into more than one source of revenue.</div>
+        </div>
+        <div class="tag-badge">Module 3</div>
+      </div>
+      <div class="tag">
+        <div class="tag-num">04</div>
+        <div>
+          <div class="tag-title">Systems and automation</div>
+          <div class="tag-desc">Set up the workflows that keep the engine running without you at the controls.</div>
+        </div>
+        <div class="tag-badge">Module 4</div>
+      </div>
+      <div class="tag">
+        <div class="tag-num">05</div>
+        <div>
+          <div class="tag-title">Mastery: choose and scale</div>
+          <div class="tag-desc">Pick your strongest channel and push it further.</div>
+        </div>
+        <div class="tag-badge">Module 5</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker-dark">Who this is for</div>
+      <h2>Built for people who'd rather stay behind the lens</h2>
+    </div>
+    <div class="for-grid">
+      <div class="stamp">
+        <h4>Travellers who write, not perform</h4>
+        <p>You've got stories and know-how from your own trips, but no interest in building a face-forward brand.</p>
+      </div>
+      <div class="stamp">
+        <h4>Side-hustlers short on time</h4>
+        <p>You want a content business that can run on a few focused hours a week, not a daily filming habit.</p>
+      </div>
+      <div class="stamp">
+        <h4>Writers and bloggers going AI-assisted</h4>
+        <p>You already publish, and want to use AI tools properly instead of guessing at prompts.</p>
+      </div>
+      <div class="stamp">
+        <h4>Anyone who wants income streams, plural</h4>
+        <p>One channel is fragile. You want a system that can support more than one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="quote-block">
+      <p class="q">I built my first faceless travel site around a trip I took in my twenties — I just wish I'd had a system for it back then.</p>
+      <div class="attrib">Course creator</div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head" style="margin:0 auto 48px; text-align:center; max-width:480px;">
+      <div class="kicker-dark" style="text-align:center;">Enrollment</div>
+      <h2>One course, five modules, yours to keep</h2>
+    </div>
+    <div class="price-card">
+      <div class="plan">Full course access</div>
+      <div class="amount">€79<span> one-time</span></div>
+      <ul>
+        <li>All five modules, self-paced</li>
+        <li>Lifetime access and future updates</li>
+        <li>Templates and AI prompt library</li>
+        <li>Private community access</li>
+      </ul>
+      <a href="https://www.paypal.com/ncp/payment/9JPRRMBA2HN7J" target="_blank" class="btn-primary" style="width:100%; text-align:center; display:block;">Buy now with PayPal</a>
+    </div>
+    <p class="price-note">One-time payment via PayPal, lifetime access.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker-dark">Questions</div>
+      <h2>Before you enroll</h2>
+    </div>
+    <details open>
+      <summary>Do I need any experience with AI tools?</summary>
+      <p>No. Module 2 walks through the AI content engine from the ground up, including the specific tools and prompts used throughout the course.</p>
+    </details>
+    <details>
+      <summary>How much time does it take each week?</summary>
+      <p>The course is self-paced. Most people move through the five modules over two to four weeks at a few hours a week.</p>
+    </details>
+    <details>
+      <summary>Do I need to have traveled extensively already?</summary>
+      <p>No. The income model in Module 1 doesn't depend on how much you've traveled — it depends on how you research and produce content.</p>
+    </details>
+    <details>
+      <summary>What if it's not for me?</summary>
+      <p>Add your refund policy here before publishing — this is a placeholder.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2>Ready to build the faceless version?</h2>
+    <p>Five modules. One system. No camera required.</p>
+    <a href="https://www.paypal.com/ncp/payment/9JPRRMBA2HN7J" target="_blank" class="btn-primary">Enroll in the course</a>© 2026 Faceless Travel Income. Replace with your real course name and links before publishing.</div>
+  </div>
+</footer>
+
+</body>
+</html>
